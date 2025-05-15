@@ -18,7 +18,7 @@ namespace PROJEKT_WPF_AK_RD.Services
         {
             _httpClient = new HttpClient();
         }
-        public async Task<TriviaResponse?> GetQuestionsAsync(int amount, int? category, string? difficulty, string? type)
+        public async Task<TriviaResponse?> GetQuestionsAsync(int amount, int? category, string? difficulty)
         {
             var url = $"{BaseUrl}?amount={amount}";
 
@@ -26,8 +26,7 @@ namespace PROJEKT_WPF_AK_RD.Services
                 url += $"&category={category}";
             if (!string.IsNullOrEmpty(difficulty))
                 url += $"&difficulty={difficulty}";
-            if (!string.IsNullOrEmpty(type))
-                url += $"&type={type}";
+            url += $"&type=multiple";
             Debug.WriteLine($"{url}");
             var response = await _httpClient.GetAsync(url);
             if (!response.IsSuccessStatusCode)

@@ -1,0 +1,38 @@
+﻿<Window x:Class="PROJEKT_WPF_AK_RD.Views.GetQuestionsWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROJEKT_WPF_AK_RD.Views"
+        mc:Ignorable="d"
+        Title="getquestionmockupview" Height="465" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" Width="760">
+                <TextBlock Text="Number of questions:" VerticalAlignment="Center"/>
+                <TextBox x:Name="AmountBox" Width="50" Margin="10,0"/>
+
+                <TextBlock Text="Difficulty:" VerticalAlignment="Center" Margin="10,0"/>
+                <ComboBox x:Name="DifficultyBox" Width="77"/>
+                
+                <TextBlock Text="Category:" VerticalAlignment="Center" Margin="10,0"/>
+                <ComboBox x:Name="CategoryBox" Width="356" DisplayMemberPath="Name" SelectedValuePath="Id" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
+                <Button Content="Fetch questions"  Click="FetchQuestions_Click" Width="121"/>
+                <Button Content="Play" Margin="10,0" Click="PlayQuiz_Click" Width="70"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <ListBox x:Name="QuestionsListBox" Grid.Row="1" Height="390" VerticalAlignment="Top" />
+    </Grid>
+</Window>
