@@ -1,0 +1,1 @@
+﻿Insert INTO Users(Username, Password ) Values('admin','password');

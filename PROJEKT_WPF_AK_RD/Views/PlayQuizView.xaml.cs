@@ -7,9 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -19,13 +16,13 @@ namespace PROJEKT_WPF_AK_RD.Views
     /// <summary>
     /// Interaction logic for PlayQuizWindow.xaml
     /// </summary>
-    public partial class PlayQuizWindow : Window
+    public partial class PlayQuizView : UserControl
     {
         private List<TriviaQuestion> _questions;
         private int _currentIndex = 0;
         private int _score = 0;
 
-        public PlayQuizWindow(List<TriviaQuestion> questions)
+        public PlayQuizView(List<TriviaQuestion> questions)
         {
             InitializeComponent();
             _questions = questions;
@@ -47,13 +44,6 @@ namespace PROJEKT_WPF_AK_RD.Views
                     _currentIndex = 0;
                     _score = 0;
                     DisplayQuestion();
-                }
-                else
-                {
-                    var getQuestionsWindow = new GetQuestionsWindow();
-                    Application.Current.MainWindow = getQuestionsWindow;
-                    getQuestionsWindow.Show();
-                    this.Close();
                 }
                 return;
             }

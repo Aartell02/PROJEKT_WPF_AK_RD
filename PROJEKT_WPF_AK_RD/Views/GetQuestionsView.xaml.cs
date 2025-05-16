@@ -1,29 +1,19 @@
 ﻿using PROJEKT_WPF_AK_RD.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using PROJEKT_WPF_AK_RD.ViewModels;
 
 namespace PROJEKT_WPF_AK_RD.Views
 {
     /// <summary>
     /// Interaction logic for GetQuestionsWindow.xaml
     /// </summary>
-    public partial class GetQuestionsWindow : Window
+    public partial class GetQuestionsView : UserControl
     {
         private readonly APIQuestionService _apiService = new();
         private List<TriviaQuestion> _questions = new();
 
-        public GetQuestionsWindow()
+        public GetQuestionsView()
         {
             InitializeComponent();
             LoadOptions();
@@ -69,9 +59,7 @@ namespace PROJEKT_WPF_AK_RD.Views
         {
             if (_questions.Count > 0)
             {
-                var gameWindow = new PlayQuizWindow(_questions);
-                gameWindow.Show();
-                Close();
+                var gameWindow = new PlayQuizView(_questions);
             }
             else
             {
