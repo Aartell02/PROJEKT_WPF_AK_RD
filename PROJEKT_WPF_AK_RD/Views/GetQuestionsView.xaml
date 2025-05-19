@@ -21,7 +21,7 @@
                 <ComboBox x:Name="DifficultyBox" Width="77"/>
 
                 <TextBlock Text="Category:" VerticalAlignment="Center" Margin="10,0"/>
-                <ComboBox x:Name="CategoryBox" Width="356" DisplayMemberPath="Name" SelectedValuePath="Id" Foreground="White" Background="#FF1D1A5F" />
+                <ComboBox x:Name="CategoryBox" Width="350" DisplayMemberPath="Name" SelectedValuePath="Id" Foreground="White" Background="#FF1D1A5F" />
 
             </StackPanel>
 

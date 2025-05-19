@@ -22,7 +22,7 @@ namespace PROJEKT_WPF_AK_RD.Views
     {
         public QuizHistoryView(MainViewModel _mainViewModel)
         {
-            this.DataContext = new LoginViewModel(_mainViewModel);
+            this.DataContext = new QuizHistoryViewModel(_mainViewModel);
             InitializeComponent();
         }
     }

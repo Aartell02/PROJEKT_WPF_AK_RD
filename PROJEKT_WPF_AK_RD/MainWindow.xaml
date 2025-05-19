@@ -12,9 +12,11 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
+    
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
+    
     <Border CornerRadius="12">
         <Border CornerRadius="10"                    
         BorderThickness="2"
@@ -36,6 +38,7 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -43,38 +46,14 @@
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Content="{Binding LoginButtonText}"
-                        Command="{Binding ToggleLoginCommand}"
-                        Grid.Column="0"
-                        VerticalAlignment="Center"
-                        Margin="10,0,0,0"
-                        Padding="20,5"
-                        FontSize="14"
-                        Cursor="Hand"
-                        Background="{StaticResource ButtonPrimaryBrush}"
-                        Foreground="White"
-                        BorderThickness="0">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border CornerRadius="11"
-                    Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Margin="{TemplateBinding Padding}"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                </Grid.ColumnDefinitions>
 
-
-
-                    <Button x:Name="btnMinimize"                           
-                        BorderThickness="0"
-                        Content="-"
-                        Cursor="Hand"
-                        Grid.Column="2"
-                        Click="Minimize_Click">
+                <Button x:Name="btnMinimize"                           
+                BorderThickness="0"
+                Content="-"
+                Cursor="Hand"
+                Grid.Column="2"
+                Click="Minimize_Click">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="{StaticResource ButtonSecondaryBrush}"/>
@@ -88,20 +67,21 @@
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="18" Height="18"
-                                    CornerRadius="9"
-                                    Background="{TemplateBinding Background}">
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
+                                            HorizontalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
-                    </Button>
-                    <Button x:Name="btnClose"                          
-                        BorderThickness="0"
-                        Content="X"
-                        Cursor="Hand"
-                        Grid.Column="3"
-                        Click="Close_Click">
+                </Button>
+
+                <Button x:Name="btnClose"                          
+                    BorderThickness="0"
+                    Content="x"
+                    Cursor="Hand"
+                    Grid.Column="3"
+                    Click="Close_Click">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="{StaticResource ButtonPrimaryBrush}"/>
@@ -115,14 +95,15 @@
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="18" Height="18"
-                                    CornerRadius="9"
-                                    Background="{TemplateBinding Background}">
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
+                                                HorizontalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
-                    </Button>
+                </Button>
+                    
                 </Grid>
                 <Grid Grid.Row="1">
                     <DockPanel>
@@ -130,11 +111,35 @@
                     </DockPanel>
                 </Grid>
 
+
+                <Button Content="{Binding LoginButtonText}"
+                        Command="{Binding ToggleLoginCommand}"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Margin="10,0,705,0"
+                        Padding="20,5"
+                        FontSize="14"
+                        Cursor="Hand"
+                        Background="{StaticResource ButtonPrimaryBrush}"
+                        Foreground="White"
+                        BorderThickness="0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="11"
+                    Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
                 <Button Content="History"
                     Command="{Binding ShowHistoryViewCommand}"
                     Grid.Column="0"
                     VerticalAlignment="Center"
-                    Margin="175,0,537,0"
+                    Margin="167,0,545,0"
                     Padding="20,5"
                     FontSize="14"
                     Cursor="Hand"
@@ -152,11 +157,12 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+                
                 <Button Content="Play"
                     Command="{Binding ShowGetQusetionsViewCommand}"
                     Grid.Column="0"
                     VerticalAlignment="Center"
-                    Margin="86,0,626,0"
+                    Margin="96,0,634,0"
                     Padding="20,5"
                     FontSize="14"
                     Cursor="Hand"

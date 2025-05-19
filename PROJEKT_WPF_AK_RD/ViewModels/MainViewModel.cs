@@ -45,16 +45,13 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         public ICommand ShowHistoryViewCommand { get; }
         public ICommand ShowGetQusetionsViewCommand { get; }
 
-        public MainViewModel()
-        {
-            ShowLoginViewCommand = new RelayCommand(ShowLoginView);
-            ShowHistoryViewCommand = new RelayCommand(ShowHistoryView);
-            ShowGetQusetionsViewCommand = new RelayCommand(ShowGetQuestionsView);
         public ICommand ToggleLoginCommand { get; }
         public MainViewModel()
         {
             ShowLoginViewCommand = new RelayCommand(ShowLoginView);
             ToggleLoginCommand = new RelayCommand(ToggleLogin);
+            ShowHistoryViewCommand = new RelayCommand(ShowHistoryView);
+            ShowGetQusetionsViewCommand = new RelayCommand(ShowGetQuestionsView);
             ShowLoginView();
         }
 
@@ -73,7 +70,6 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             else CurrentView = new QuizHistoryView(this);
         }
 
-        public void LoginUser(User user)
         public void ToggleLogin()
         {
             if (User != null) {

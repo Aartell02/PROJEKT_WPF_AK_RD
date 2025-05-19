@@ -12,11 +12,24 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="HistoryListBox" Height="454" Width="760" VerticalAlignment="Top" Grid.RowSpan="2" />
+        <ListBox ItemsSource="{Binding Games}" Height="454" Width="760" VerticalAlignment="Top" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontWeight="Bold" Text="{Binding Category}" />
+                        <TextBlock Text="{Binding Date, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" />
+                        <TextBlock Text="Score:"/>
+                        <TextBlock Text="{Binding Score}" />
+                        <TextBlock Text="Max Score:"/>
+                        <TextBlock Text="{Binding MaxScore}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Button Content="Clear History"
                 Margin="636,462,10,0"
-                Command="" Grid.Row="1"/>
+                Command="{Binding ClearHistoryCommand}" />
 
     </Grid>
 </UserControl>

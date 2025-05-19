@@ -62,7 +62,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
                         Score = _score,
                         MaxScore = _questions.Count,
                         Date = DateTime.Now,
-                        UserId = _mainViewModel.LoggedInUser.Id // 🟡 <- Załóżmy, że masz dostęp do aktualnego użytkownika
+                        UserId = _mainViewModel.User.Id
                     };
 
                     db.QuizGames.Add(quizGame);
