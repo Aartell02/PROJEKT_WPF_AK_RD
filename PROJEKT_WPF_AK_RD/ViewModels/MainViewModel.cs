@@ -9,8 +9,6 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private object _currentView;
-        private User _user;
-
         public object CurrentView
         {
             get => _currentView;
@@ -20,6 +18,27 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
                 OnPropertyChanged();
             }
         }
+        private User? _user;
+        public User User
+        {
+            get => _user;
+            set
+            {
+                if (_user == null)
+                {
+                    _user = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(LoginButtonText));
+                }
+                else
+                {
+                    _user = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(LoginButtonText));
+                }
+            }
+        }
+        public string LoginButtonText => _user != null ? "Logout" : "Login";
 
         public ICommand ShowLoginViewCommand { get; }
         public ICommand ShowQuestionsViewCommand { get; }
@@ -31,6 +50,11 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             ShowLoginViewCommand = new RelayCommand(ShowLoginView);
             ShowHistoryViewCommand = new RelayCommand(ShowHistoryView);
             ShowGetQusetionsViewCommand = new RelayCommand(ShowGetQuestionsView);
+        public ICommand ToggleLoginCommand { get; }
+        public MainViewModel()
+        {
+            ShowLoginViewCommand = new RelayCommand(ShowLoginView);
+            ToggleLoginCommand = new RelayCommand(ToggleLogin);
             ShowLoginView();
         }
 
@@ -50,12 +74,16 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         }
 
         public void LoginUser(User user)
+        public void ToggleLogin()
         {
-            _user = user;
-        }
-        public void LogoutUser()
-        {
-            _user = null;
+            if (User != null) {
+                User = null;
+                ShowLoginView();
+            }
+            else
+            {
+                ShowLoginView();
+            }
         }
     }
 }

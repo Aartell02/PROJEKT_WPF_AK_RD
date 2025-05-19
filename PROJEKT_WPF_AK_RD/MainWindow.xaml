@@ -44,17 +44,17 @@
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Login"
-        Command="{Binding ShowLoginViewCommand}"
-        Grid.Column="0"
-        VerticalAlignment="Center"
-        Margin="10,0,0,0"
-        Padding="20,5"
-        FontSize="14"
-        Cursor="Hand"
-        Background="{StaticResource ButtonPrimaryBrush}"
-        Foreground="White"
-        BorderThickness="0">
+                    <Button Content="{Binding LoginButtonText}"
+                        Command="{Binding ToggleLoginCommand}"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Margin="10,0,0,0"
+                        Padding="20,5"
+                        FontSize="14"
+                        Cursor="Hand"
+                        Background="{StaticResource ButtonPrimaryBrush}"
+                        Foreground="White"
+                        BorderThickness="0">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border CornerRadius="11"
