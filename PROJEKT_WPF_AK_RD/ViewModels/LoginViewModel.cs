@@ -4,6 +4,7 @@ using PROJEKT_WPF_AK_RD.Models;
 using System.Windows.Input;
 using System.Windows;
 using PROJEKT_WPF_AK_RD.Helpers;
+using PROJEKT_WPF_AK_RD.EntityFramework;
 
 namespace PROJEKT_WPF_AK_RD.ViewModels
 {
@@ -42,19 +43,25 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
 
         private void Login()
         {
-            using var db = new AppDbContext();
-            var user = db.Users.FirstOrDefault(u => u.Username == Username);
-
-            if (user != null)
+            if (_mainViewModel.User == null )
             {
-                StatusMessage = $"Zalogowano jako {user.Username}";
-                _mainViewModel.LoginUser(user);
-                MessageBox.Show("Logowanie udane!");
-                _mainViewModel.CurrentView = new GetQuestionsView(_mainViewModel);
+                using var db = new AppDbContext();
+                var user = db.Users.FirstOrDefault(u => u.Username == Username);
+                if ( user != null)
+                {
+                    StatusMessage = $"Zalogowano jako {user.Username}";
+                    MessageBox.Show("Logowanie udane!");
+                    _mainViewModel.CurrentView = new GetQuestionsView(_mainViewModel);
+                    _mainViewModel.User = user;
+                }
+                else
+                {
+                    StatusMessage = "Błędna nazwa użytkownika lub hasło";
+                }
             }
             else
             {
-                StatusMessage = "Błędna nazwa użytkownika lub hasło";
+                _mainViewModel.User = null;
             }
         }
 
