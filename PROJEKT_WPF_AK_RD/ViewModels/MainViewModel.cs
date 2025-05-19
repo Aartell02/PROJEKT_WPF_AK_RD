@@ -21,15 +21,22 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
 
         public ICommand ShowLoginViewCommand { get; }
         public ICommand ShowQuestionsViewCommand { get; }
+        public ICommand ShowHistoryViewCommand { get; }
+
         public MainViewModel()
         {
             ShowLoginViewCommand = new RelayCommand(ShowLoginView);
+            ShowHistoryViewCommand = new RelayCommand(ShowHistoryView);
             ShowLoginView();
         }
 
         private void ShowLoginView()
         {
             CurrentView = new LoginView(this);
+        }
+        private void ShowHistoryView()
+        {
+            CurrentView = new QuizHistoryView(this);
         }
     }
 }

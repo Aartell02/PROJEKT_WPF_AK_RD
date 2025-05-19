@@ -129,6 +129,29 @@
                         <ContentControl Content="{Binding CurrentView}" />
                     </DockPanel>
                 </Grid>
+                
+                <Button Content="History"
+                    Command="{Binding ShowHistoryViewCommand}"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    Margin="87,0,625,0"
+                    Padding="20,5"
+                    FontSize="14"
+                    Cursor="Hand"
+                    Background="{StaticResource ButtonPrimaryBrush}"
+                    Foreground="White"
+                    BorderThickness="0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="11"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Grid>
         </Border>
 
