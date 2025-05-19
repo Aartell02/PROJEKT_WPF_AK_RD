@@ -11,11 +11,9 @@ namespace PROJEKT_WPF_AK_RD.Views
     /// </summary>
     public partial class GetQuestionsView : UserControl
     {
-
-
         public GetQuestionsView(MainViewModel _mainViewModel)
         {
-            this.DataContext = new QuizViewModel(_mainViewModel);
+            this.DataContext = new GetQusetionsViewModel(_mainViewModel);
             InitializeComponent();
             LoadOptions();
         }
@@ -28,7 +26,7 @@ namespace PROJEKT_WPF_AK_RD.Views
             string? difficulty = (DifficultyBox.SelectedItem as string) == "any" ? null : DifficultyBox.SelectedItem as string;
             int? category = (CategoryBox.SelectedItem as TriviaCategory) is { Id: > 0 } cat ? cat.Id : null;
             QuestionsListBox.Items.Clear();
-            if (this.DataContext is QuizViewModel viewModel)
+            if (this.DataContext is GetQusetionsViewModel viewModel)
             {
                 if(await viewModel.FetchQuestions(amount, category, difficulty))
                 {
@@ -42,13 +40,10 @@ namespace PROJEKT_WPF_AK_RD.Views
             }
         }
 
-        // Rozpoczyna quiz, jeśli pytania są dostępne
-
-
         // Ładuje opcje do pól wyboru
         private async void LoadOptions()
         {
-            if (this.DataContext is QuizViewModel viewModel)
+            if (this.DataContext is GetQusetionsViewModel viewModel)
             {
                 var categories = await viewModel._apiService.GetCategoriesAsync();
                 categories.Insert(0, new TriviaCategory { Id = 0, Name = "Any Category" });

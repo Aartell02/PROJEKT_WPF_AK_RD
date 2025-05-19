@@ -14,13 +14,13 @@ using System.Diagnostics;
 
 namespace PROJEKT_WPF_AK_RD.ViewModels
 {
-    class QuizViewModel : ViewModelBase
+    public class GetQusetionsViewModel : ViewModelBase
     {
         private List<TriviaQuestion> _questions = new();
         private MainViewModel _mainViewModel;
         public readonly APIQuestionService _apiService = new();
         public ICommand PlayCommand { get; }
-        public QuizViewModel(MainViewModel mainViewModel)
+        public GetQusetionsViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
             PlayCommand = new RelayCommand(ShowPlayQuizCommand);

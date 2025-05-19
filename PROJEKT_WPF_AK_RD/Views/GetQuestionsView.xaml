@@ -18,15 +18,17 @@
 
                 <TextBlock Text="Difficulty:" VerticalAlignment="Center" Margin="10,0"/>
                 <ComboBox x:Name="DifficultyBox" Width="77"/>
-                
+
                 <TextBlock Text="Category:" VerticalAlignment="Center" Margin="10,0"/>
-                <ComboBox x:Name="CategoryBox" Width="356" DisplayMemberPath="Name" SelectedValuePath="Id" />
+                <ComboBox x:Name="CategoryBox" Width="356" DisplayMemberPath="Name" SelectedValuePath="Id" Foreground="White" Background="#FF1D1A5F" />
 
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                <Button Content="Fetch questions"  Click="FetchQuestions_Click" Width="121"/>
-                <Button Content="Play" Margin="10,0" 
+                <Button Content="Fetch questions"
+                        Click="FetchQuestions_Click"
+                        Width="121"/>
+                <Button Content="Play" Margin="5,5"
                         Width="70"  
                         Command="{Binding PlayCommand}" />
             </StackPanel>

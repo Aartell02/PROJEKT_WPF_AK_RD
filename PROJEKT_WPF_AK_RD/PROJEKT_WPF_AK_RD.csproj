@@ -9,14 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\**" />
     <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Images\**" />
     <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Images\**" />
     <None Remove="Resources\**" />
+    <Page Remove="Images\**" />
     <Page Remove="Resources\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 

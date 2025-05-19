@@ -7,7 +7,6 @@ using PROJEKT_WPF_AK_RD.Helpers;
 
 namespace PROJEKT_WPF_AK_RD.ViewModels
 {
-
     public class LoginViewModel : ViewModelBase
     {
         private MainViewModel _mainViewModel;
