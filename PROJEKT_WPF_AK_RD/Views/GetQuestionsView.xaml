@@ -28,7 +28,7 @@
                 <Button Content="Fetch questions"  Click="FetchQuestions_Click" Width="121"/>
                 <Button Content="Play" Margin="10,0" 
                         Width="70"  
-                        Command="{Binding ShowPlayQuizCommand}" />
+                        Command="{Binding PlayCommand}" />
             </StackPanel>
 
         </StackPanel>

@@ -24,7 +24,6 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         public MainViewModel()
         {
             ShowLoginViewCommand = new RelayCommand(ShowLoginView);
-            ShowQuestionsViewCommand = new RelayCommand(ShowQuestionsView);
             ShowLoginView();
         }
 
@@ -32,10 +31,5 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         {
             CurrentView = new LoginView(this);
         }
-        private void ShowQuestionsView()
-        {
-            CurrentView = new GetQuestionsView();
-        }
-
     }
 }

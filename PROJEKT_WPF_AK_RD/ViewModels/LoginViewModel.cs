@@ -50,7 +50,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             {
                 StatusMessage = $"Zalogowano jako {user.Username}";
                 MessageBox.Show("Logowanie udane!");
-                _mainViewModel.CurrentView = new GetQuestionsView();
+                _mainViewModel.CurrentView = new GetQuestionsView(_mainViewModel);
             }
             else
             {

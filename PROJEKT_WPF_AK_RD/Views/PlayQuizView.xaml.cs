@@ -1,4 +1,5 @@
-﻿using PROJEKT_WPF_AK_RD.Services;
+﻿using PROJEKT_WPF_AK_RD.Models;
+using PROJEKT_WPF_AK_RD.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +22,15 @@ namespace PROJEKT_WPF_AK_RD.Views
         private List<TriviaQuestion> _questions;
         private int _currentIndex = 0;
         private int _score = 0;
+        private List<Models.TriviaQuestion> questions;
 
-        public PlayQuizView(List<TriviaQuestion> questions)
+        public PlayQuizView(MainViewModel mainViewModel,List<TriviaQuestion> questions)
         {
             InitializeComponent();
             _questions = questions;
             DisplayQuestion();
         }
+
 
         private void DisplayQuestion()
         {
@@ -109,5 +112,6 @@ namespace PROJEKT_WPF_AK_RD.Views
                 btn.Background = Brushes.White;
             }
         }
+
     }
 }
