@@ -16,5 +16,6 @@ namespace PROJEKT_WPF_AK_RD.EntityFramework
         [Required]
         public string? Password{ get; set; }
 
+        public virtual ICollection<QuizGame> QuizGames { get; set; } = new List<QuizGame>();
     }
 }

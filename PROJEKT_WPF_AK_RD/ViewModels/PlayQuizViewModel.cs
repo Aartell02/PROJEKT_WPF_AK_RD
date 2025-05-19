@@ -1,6 +1,8 @@
-﻿using PROJEKT_WPF_AK_RD.Helpers;
+﻿using PROJEKT_WPF_AK_RD.Data;
+using PROJEKT_WPF_AK_RD.Helpers;
 using PROJEKT_WPF_AK_RD.Models;
 using PROJEKT_WPF_AK_RD.Views;
+using PROJEKT_WPF_AK_RD.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -52,6 +54,21 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         {
             if (_currentIndex >= _questions.Count)
             {
+                using (var db = new AppDbContext())
+                {
+                    var quizGame = new QuizGame
+                    {
+                        Category = _questions.FirstOrDefault()?.category ?? "Unknown",
+                        Score = _score,
+                        MaxScore = _questions.Count,
+                        Date = DateTime.Now,
+                        UserId = _mainViewModel.LoggedInUser.Id // 🟡 <- Załóżmy, że masz dostęp do aktualnego użytkownika
+                    };
+
+                    db.QuizGames.Add(quizGame);
+                    db.SaveChanges();
+                }
+
                 var result = MessageBox.Show(
                     $"Quiz finished! Your score: {_score}/{_questions.Count}\n\nDo you want to try the same quiz again?",
                     "Quiz Completed",

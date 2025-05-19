@@ -4,7 +4,7 @@
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:local="clr-namespace:PROJEKT_WPF_AK_RD.Views"
-                mc:Ignorable="d">
+                mc:Ignorable="d" Height="505">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -12,10 +12,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button Content="Clear History"
-                Margin="677,1,10,8"
-                Command=""/>
+        <ListBox x:Name="HistoryListBox" Height="454" Width="760" VerticalAlignment="Top" Grid.RowSpan="2" />
 
-        <ListBox x:Name="HistoryListBox" Grid.Row="1" Height="390" Width="760" VerticalAlignment="Top" />
+        <Button Content="Clear History"
+                Margin="636,462,10,0"
+                Command="" Grid.Row="1"/>
+
     </Grid>
 </UserControl>

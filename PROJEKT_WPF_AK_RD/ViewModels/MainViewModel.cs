@@ -24,11 +24,13 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         public ICommand ShowLoginViewCommand { get; }
         public ICommand ShowQuestionsViewCommand { get; }
         public ICommand ShowHistoryViewCommand { get; }
+        public ICommand ShowGetQusetionsViewCommand { get; }
 
         public MainViewModel()
         {
             ShowLoginViewCommand = new RelayCommand(ShowLoginView);
             ShowHistoryViewCommand = new RelayCommand(ShowHistoryView);
+            ShowGetQusetionsViewCommand = new RelayCommand(ShowGetQuestionsView);
             ShowLoginView();
         }
 
@@ -36,9 +38,17 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         {
             CurrentView = new LoginView(this);
         }
+        private void ShowGetQuestionsView()
+        {
+            if (_user == null) CurrentView = new LoginView(this);
+            else CurrentView = new GetQuestionsView(this);
+        }
         private void ShowHistoryView()
         {
-            CurrentView = new QuizHistoryView(this);
+            if(_user == null) CurrentView = new LoginView(this);
+            else CurrentView = new QuizHistoryView(this);
+        }
+
         public void LoginUser(User user)
         {
             _user = user;
