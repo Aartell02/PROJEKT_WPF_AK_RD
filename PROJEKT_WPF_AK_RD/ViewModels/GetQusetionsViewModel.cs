@@ -27,14 +27,13 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         }
         private void ShowPlayQuizCommand()
         {
-            Debug.WriteLine("tak");
             if (_questions.Count > 0)
             {
                 _mainViewModel.CurrentView = new PlayQuizView(_mainViewModel, _questions);
             }
             else
             {
-                MessageBox.Show("Najpierw pobierz pytania.");
+                MessageBox.Show("Fetch questions first");
             }
         }
         public async Task<bool> FetchQuestions(int amount, int? category, string? difficulty)
@@ -59,7 +58,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Błąd podczas pobierania pytań: " + ex.Message);
+                MessageBox.Show("Fetching error: " + ex.Message);
                 return false;
             }
         }

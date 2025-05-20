@@ -38,7 +38,7 @@
                     Margin="0,5,0,0"
                     Padding="20,0,0,0">
         </PasswordBox>
-        <TextBlock Text="Repeat Password" Margin="0,15,0,0"/>
+        <TextBlock Text="Confirm Password" Margin="0,15,0,0"/>
         <PasswordBox   x:Name="txtPass2" PasswordChanged="RepeatPasswordBox_PasswordChanged"
             FontSize="13"
             FontWeight="Medium"

@@ -40,7 +40,7 @@
         </PasswordBox>
         <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Right"
-                        Margin="0,0,10,0">
+                        Margin="0,5,5,0">
             <TextBlock>
                 <Run Text="Forgot password? "/>
                 <Hyperlink Command="{Binding ShowPasswordResetCommand}">

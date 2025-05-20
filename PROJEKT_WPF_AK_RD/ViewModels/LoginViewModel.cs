@@ -53,14 +53,14 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
                 var user = db.Users.FirstOrDefault(u => u.Username == Username && u.Password == Password);
                 if ( user != null)
                 {
-                    StatusMessage = $"Zalogowano jako {user.Username}";
-                    MessageBox.Show("Logowanie udane!");
+                    StatusMessage = $"Logged in as {user.Username}";
+                    MessageBox.Show("Logged in succesfuly!");
                     _mainViewModel.CurrentView = new GetQuestionsView(_mainViewModel);
                     _mainViewModel.User = user;
                 }
                 else
                 {
-                    StatusMessage = "Błędna nazwa użytkownika lub hasło";
+                    StatusMessage = "User does not exist!";
                 }
             }
             else
