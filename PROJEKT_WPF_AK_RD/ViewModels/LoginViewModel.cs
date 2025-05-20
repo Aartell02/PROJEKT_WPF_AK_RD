@@ -34,11 +34,15 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         }
 
         public ICommand LoginCommand { get; }
+        public ICommand ShowRegisterCommand { get; }
+        public ICommand ShowPasswordResetCommand { get; }
 
         public LoginViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
             LoginCommand = new RelayCommand(Login);
+            ShowRegisterCommand = new RelayCommand(ShowRegister);
+            ShowPasswordResetCommand = new RelayCommand(ShowPasswordReset);
         }
 
         private void Login()
@@ -46,7 +50,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             if (_mainViewModel.User == null )
             {
                 using var db = new AppDbContext();
-                var user = db.Users.FirstOrDefault(u => u.Username == Username);
+                var user = db.Users.FirstOrDefault(u => u.Username == Username && u.Password == Password);
                 if ( user != null)
                 {
                     StatusMessage = $"Zalogowano jako {user.Username}";
@@ -64,6 +68,15 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
                 _mainViewModel.User = null;
             }
         }
-
+        private void ShowRegister()
+        {
+            _mainViewModel.CurrentView = new RegisterView(_mainViewModel);
+        }
+        private void ShowPasswordReset()
+        {
+            _mainViewModel.CurrentView = new PasswordResetView(_mainViewModel);
+        }
     }
+
+    
 }

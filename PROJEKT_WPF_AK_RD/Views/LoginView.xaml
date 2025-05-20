@@ -5,75 +5,87 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:PROJEKT_WPF_AK_RD.Views"
              mc:Ignorable="d">
-    
-                <StackPanel Width="220"
-                            Grid.Row="1"
-                            Orientation="Vertical"
-                            Margin="0,35,0,0">
 
-                    <TextBlock Text="Quizzz..."
-                               FontSize="25"
-                               HorizontalAlignment="Center"/>
+    <StackPanel Width="260"
+            Orientation="Vertical"
+            Margin="0,35,0,0">
 
-                    <TextBlock Text="Username" Margin="0,35,0,0"/>
-                    <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                             BorderBrush="{StaticResource TextPrimaryBrush}"
-                             BorderThickness="0,0,0,2"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Margin="0,5,0,0"
-                             Padding="20,0,0,0">
+        <TextBlock Text="Quizzz..."
+                            FontSize="25"
+                            HorizontalAlignment="Center"/>
 
-                    </TextBox>
-                    <TextBlock Text="Password" Margin="0,15,0,0"/>
-                    <PasswordBox   x:Name="txtPass" PasswordChanged="PasswordBox_PasswordChanged"
-                             FontSize="13"
-                             FontWeight="Medium"
-                             FontFamily="Montserrat"                            
-                             Foreground="Transparent"
-                             CaretBrush="LightGray"
-                             BorderBrush="{StaticResource TextPrimaryBrush}"
-                             BorderThickness="0,0,0,2"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Margin="0,5,0,0"
-                             Padding="20,0,0,0">
-                    </PasswordBox>
-                    <Button x:Name="btnLogin"                          
-                            BorderThickness="0"
-                            Content="LOG IN"
-                            Cursor="Hand"                           
-                            Margin="0,50,0,0"
-                            Command="{Binding LoginCommand}">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="{StaticResource ButtonPrimaryBrush}"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="{StaticResource ButtonPrimaryBrush}"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="150" Height="40"
-                                        CornerRadius="20"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="0,15,0,0">
-                        <TextBlock Text="Forgot Password?"/>
-                        <TextBlock Text="Reset"
-                               Cursor="Hand"
-                               Margin="8,0,0,0"/>
-                    </StackPanel>
-                </StackPanel>
-            
+        <TextBlock Text="Username" Margin="0,35,0,0"/>
+        <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                            BorderBrush="{StaticResource TextPrimaryBrush}"
+                            BorderThickness="0,0,0,2"
+                            Height="28"
+                            VerticalContentAlignment="Center"
+                            Margin="0,5,0,0"
+                            Padding="20,0,0,0">
+
+        </TextBox>
+        <TextBlock Text="Password" Margin="0,15,0,0"/>
+        <PasswordBox   x:Name="txtPass" PasswordChanged="PasswordBox_PasswordChanged"
+                            FontSize="13"
+                            FontWeight="Medium"
+                            FontFamily="Montserrat"                            
+                            Foreground="Transparent"
+                            CaretBrush="LightGray"
+                            BorderBrush="{StaticResource TextPrimaryBrush}"
+                            BorderThickness="0,0,0,2"
+                            Height="28"
+                            VerticalContentAlignment="Center"
+                            Margin="0,5,0,0"
+                            Padding="20,0,0,0">
+        </PasswordBox>
+        <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,10,0">
+            <TextBlock>
+                <Run Text="Forgot password? "/>
+                <Hyperlink Command="{Binding ShowPasswordResetCommand}">
+                    Reset
+                </Hyperlink>
+               </TextBlock>
+        </StackPanel>
+        <Button x:Name="btnLogin"                          
+                        BorderThickness="0"
+                        Content="LOG IN"
+                        Cursor="Hand"                           
+                        Margin="0,50,0,0"
+                        Command="{Binding LoginCommand}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="{StaticResource ButtonPrimaryBrush}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource ButtonPrimaryBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="150" Height="40"
+                                    CornerRadius="20"
+                                    Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,15,0,0">
+
+            <TextBlock>
+                <Run Text="Need account? " />
+                <Hyperlink Command="{Binding ShowRegisterCommand}">
+                    Register
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </StackPanel>
+
 </UserControl>
