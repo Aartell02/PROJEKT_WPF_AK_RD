@@ -20,10 +20,13 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         private MainViewModel _mainViewModel;
         public readonly APIQuestionService _apiService = new();
         public ICommand PlayCommand { get; }
+        public ICommand PrintCommand { get; }
+
         public GetQusetionsViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
             PlayCommand = new RelayCommand(ShowPlayQuizCommand);
+            PrintCommand = new RelayCommand(PrintQuestions);
         }
         private void ShowPlayQuizCommand()
         {
@@ -65,5 +68,49 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
 
         public List<TriviaQuestion> GetQuestions() => _questions;
 
+        private void PrintQuestions()
+        {
+            if (_questions == null || _questions.Count == 0)
+            {
+                MessageBox.Show("No questions to print.");
+                return;
+            }
+
+            var doc = new System.Windows.Documents.FlowDocument
+            {
+                PagePadding = new Thickness(50),
+                ColumnWidth = double.PositiveInfinity // Ensures one column
+            };
+
+            int i = 1;
+
+            foreach (var question in _questions)
+            {
+                doc.Blocks.Add(new System.Windows.Documents.Paragraph(
+                    new System.Windows.Documents.Bold(
+                        new System.Windows.Documents.Run($"Pytanie {i++}: {System.Net.WebUtility.HtmlDecode(question.question)}")
+                    )
+                ));
+
+                var allAnswers = new List<string>(question.incorrect_answers);
+                allAnswers.Add(question.correct_answer);
+                allAnswers = allAnswers.OrderBy(a => Guid.NewGuid()).ToList(); // random order
+
+                foreach (var ans in allAnswers)
+                {
+                    doc.Blocks.Add(new System.Windows.Documents.Paragraph(
+                        new System.Windows.Documents.Run($"- {System.Net.WebUtility.HtmlDecode(ans)}")
+                    ));
+                }
+
+                doc.Blocks.Add(new System.Windows.Documents.Paragraph(new System.Windows.Documents.Run("")));
+            }
+
+            var pd = new System.Windows.Controls.PrintDialog();
+            if (pd.ShowDialog() == true)
+            {
+                pd.PrintDocument(((System.Windows.Documents.IDocumentPaginatorSource)doc).DocumentPaginator, "Quiz");
+            }
+        }
     }
 }

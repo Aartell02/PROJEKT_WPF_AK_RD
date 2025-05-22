@@ -5,7 +5,7 @@
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:local="clr-namespace:PROJEKT_WPF_AK_RD.Views"
                 mc:Ignorable="d">
-    
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -32,6 +32,10 @@
                 <Button Content="Play" Margin="5,5"
                         Width="70"  
                         Command="{Binding PlayCommand}" />
+                <Button Content="Print"
+                        Width="70"
+                        Margin="5,5"
+                        Command="{Binding PrintCommand}" />
             </StackPanel>
 
         </StackPanel>
