@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListBox ItemsSource="{Binding Games}" Height="454" Width="760" VerticalAlignment="Top" Grid.RowSpan="2">
+        <ListBox ItemsSource="{Binding Games}" Height="422" Width="760" VerticalAlignment="Center">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
@@ -31,5 +31,10 @@
                 Margin="636,462,10,0"
                 Command="{Binding ClearHistoryCommand}" />
 
+        <TextBlock HorizontalAlignment="Left" Margin="10,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="12"><Run Language="pl-pl" Text="Category: "/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+
+        <ComboBox HorizontalAlignment="Left" Margin="71,4,0,0" VerticalAlignment="Top" Width="259"
+          ItemsSource="{Binding Categories}"
+          SelectedItem="{Binding SelectedCategory}" />
     </Grid>
 </UserControl>

@@ -51,7 +51,12 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             {
                 using var db = new AppDbContext();
                 var user = db.Users.FirstOrDefault(u => u.Username == Username && u.Password == Password);
-                if ( user != null)
+                if (Username == "admin" && Password == "admin")
+                {
+                    var adminWindow = new AdminWindow();
+                    adminWindow.Show();
+                }
+                else if ( user != null)
                 {
                     StatusMessage = $"Logged in as {user.Username}";
                     MessageBox.Show("Logged in succesfuly!");

@@ -1,0 +1,32 @@
+﻿<Window x:Class="PROJEKT_WPF_AK_RD.Views.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROJEKT_WPF_AK_RD.Views"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800" Background="White">
+
+    <Grid Margin="10">
+        <!-- DataGrid -->
+        <DataGrid x:Name="UserDataGrid"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="0,0,0,40"
+                  HeadersVisibility="Column"
+                  GridLinesVisibility="Horizontal">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto"/>
+                <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="*"/>
+                <DataGridTextColumn Header="Avg. Score (%)" Binding="{Binding AverageScorePercentage, StringFormat=N2}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Search Bar -->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="30" Margin="0,0,0,5">
+            <TextBlock Text="Search user:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <TextBox x:Name="SearchTextBox" Width="200" Height="23" Margin="0,0,8,0"/>
+            <Button Content="Search" Click="SearchButton_Click" Width="75" Height="23"/>
+        </StackPanel>
+    </Grid>
+</Window>
