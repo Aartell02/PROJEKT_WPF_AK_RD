@@ -88,7 +88,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             {
                 doc.Blocks.Add(new System.Windows.Documents.Paragraph(
                     new System.Windows.Documents.Bold(
-                        new System.Windows.Documents.Run($"Pytanie {i++}: {System.Net.WebUtility.HtmlDecode(question.question)}")
+                        new System.Windows.Documents.Run($"{i++}. {System.Net.WebUtility.HtmlDecode(question.question)}")
                     )
                 ));
 
