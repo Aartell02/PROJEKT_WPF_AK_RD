@@ -18,7 +18,7 @@ namespace PROJEKT_WPF_AK_RD.Views
     /// <summary>
     /// Interaction logic for QuizHistory.xaml
     /// </summary>
-    public partial class QuizHistoryView : UserControl
+    public partial class QuizHistoryView : System.Windows.Controls.UserControl
     {
         public QuizHistoryView(MainViewModel _mainViewModel)
         {

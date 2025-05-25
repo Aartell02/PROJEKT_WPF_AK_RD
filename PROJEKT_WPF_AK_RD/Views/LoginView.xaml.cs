@@ -12,7 +12,7 @@ namespace PROJEKT_WPF_AK_RD.Views
     /// <summary>
     /// Logika interakcji dla klasy LoginView.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class LoginView : System.Windows.Controls.UserControl
     {
         public LoginView( MainViewModel _mainViewModel)
         {

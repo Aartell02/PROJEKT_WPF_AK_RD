@@ -13,7 +13,7 @@ namespace PROJEKT_WPF_AK_RD.Views
     /// <summary>
     /// Logika interakcji dla klasy PasswordResetView.xaml
     /// </summary>
-    public partial class PasswordResetView : UserControl
+    public partial class PasswordResetView : System.Windows.Controls.UserControl
     {
         public PasswordResetView(MainViewModel _mainViewModel)
         {

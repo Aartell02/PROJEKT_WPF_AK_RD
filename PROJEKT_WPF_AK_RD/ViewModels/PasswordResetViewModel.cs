@@ -60,7 +60,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             }
             else
             {
-                MessageBox.Show("Username incorrect");
+                System.Windows.MessageBox.Show("Username incorrect");
             }
         }
     }

@@ -73,7 +73,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             }
             else
             {
-                MessageBox.Show("User already exist");
+                System.Windows.MessageBox.Show("User already exist");
             }
         }
     }

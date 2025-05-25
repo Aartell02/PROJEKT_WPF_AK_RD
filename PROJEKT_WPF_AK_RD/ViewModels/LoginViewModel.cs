@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows;
 using PROJEKT_WPF_AK_RD.Helpers;
 using PROJEKT_WPF_AK_RD.EntityFramework;
+using System.Net.NetworkInformation;
 
 namespace PROJEKT_WPF_AK_RD.ViewModels
 {
@@ -43,6 +44,33 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             LoginCommand = new RelayCommand(Login);
             ShowRegisterCommand = new RelayCommand(ShowRegister);
             ShowPasswordResetCommand = new RelayCommand(ShowPasswordReset);
+            using var db = new AppDbContext();
+            if (!db.Database.CanConnect())
+            {
+                System.Windows.MessageBox.Show("Database error occured. Application will shutdown soon.",
+                                "Error",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error);
+
+                System.Windows.Application.Current.Shutdown(); 
+            }
+            /*try
+            {
+                using (Ping ping = new Ping())
+                {
+                    PingReply reply = ping.Send("8.8.8.8", 3000);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Internet connection error occured. Application will shutdown soon.",
+                                "Error",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error);
+
+                Application.Current.Shutdown();
+            }*/
+
         }
 
         private void Login()
@@ -56,10 +84,10 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
                     var adminWindow = new AdminWindow();
                     adminWindow.Show();
                 }
-                else if ( user != null)
+                else if (user != null)
                 {
                     StatusMessage = $"Logged in as {user.Username}";
-                    MessageBox.Show("Logged in succesfuly!");
+                    System.Windows.MessageBox.Show("Logged in succesfuly!");
                     _mainViewModel.CurrentView = new GetQuestionsView(_mainViewModel);
                     _mainViewModel.User = user;
                 }

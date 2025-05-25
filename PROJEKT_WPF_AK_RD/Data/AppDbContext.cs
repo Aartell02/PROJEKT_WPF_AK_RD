@@ -7,7 +7,6 @@ namespace PROJEKT_WPF_AK_RD.Data
     {
         public DbSet<User> Users { get; set; }
         public DbSet<QuizGame> QuizGames { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ProjektWPF;Trusted_Connection=True;");

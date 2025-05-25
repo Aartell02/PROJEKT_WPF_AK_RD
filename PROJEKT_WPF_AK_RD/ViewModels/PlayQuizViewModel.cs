@@ -69,7 +69,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
                     db.SaveChanges();
                 }
 
-                var result = MessageBox.Show(
+                var result = System.Windows.MessageBox.Show(
                     $"Quiz finished! Your score: {_score}/{_questions.Count}\n\nDo you want to try the same quiz again?",
                     "Quiz Completed",
                     MessageBoxButton.YesNo,

@@ -17,7 +17,7 @@ namespace PROJEKT_WPF_AK_RD.Views
     /// <summary>
     /// Interaction logic for PlayQuizWindow.xaml
     /// </summary>
-    public partial class PlayQuizView : UserControl
+    public partial class PlayQuizView : System.Windows.Controls.UserControl
     {
         public PlayQuizView(MainViewModel mainViewModel, List<TriviaQuestion> questions)
         {

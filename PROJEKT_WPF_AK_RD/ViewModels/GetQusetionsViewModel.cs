@@ -36,7 +36,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             }
             else
             {
-                MessageBox.Show("Fetch questions first");
+                System.Windows.MessageBox.Show("Fetch questions first");
             }
         }
         public async Task<bool> FetchQuestions(int amount, int? category, string? difficulty)
@@ -61,7 +61,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Fetching error: " + ex.Message);
+                System.Windows.MessageBox.Show("Fetching error: " + ex.Message);
                 return false;
             }
         }
@@ -72,7 +72,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
         {
             if (_questions == null || _questions.Count == 0)
             {
-                MessageBox.Show("No questions to print.");
+                System.Windows.MessageBox.Show("No questions to print.");
                 return;
             }
 

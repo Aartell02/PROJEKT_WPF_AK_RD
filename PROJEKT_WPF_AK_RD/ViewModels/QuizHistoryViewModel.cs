@@ -47,7 +47,7 @@ namespace PROJEKT_WPF_AK_RD.ViewModels
 
             if (userId == -1)
             {
-                MessageBox.Show("No account detected");
+                System.Windows.MessageBox.Show("No account detected");
                 return;
             }
 
