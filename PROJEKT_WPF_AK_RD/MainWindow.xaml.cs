@@ -15,7 +15,9 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         _notifyIcon = new NotifyIcon();
-        _notifyIcon.Icon = new Icon(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ikona.ico"));
+        string projectDir = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+        string iconPath = Path.Combine(projectDir, "Resources", "ikona.ico");
+        _notifyIcon.Icon = new Icon(iconPath);
         _notifyIcon.Visible = true;
         _notifyIcon.Text = "Moja aplikacja WPF";
         _notifyIcon.DoubleClick += (s, args) => ShowWindow();
